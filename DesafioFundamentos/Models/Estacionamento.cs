@@ -17,7 +17,6 @@ namespace DesafioFundamentos.Models
             // TODO: Pedir para o usuário digitar uma placa (ReadLine) e adicionar na lista "veiculos"
             // *IMPLEMENTE AQUI*
             Console.WriteLine("Digite a placa do veículo para estacionar:");
-            string format = string.Format("###-####");
             string car = Console.ReadLine();
             if (car.Length < 7 || car.Length == 8 && !car.Contains("-") || car.Length > 8)
             {
@@ -87,7 +86,7 @@ namespace DesafioFundamentos.Models
                 // *IMPLEMENTE AQUI*
                 foreach (var veiculo in veiculos)
                 {
-                    Console.WriteLine(veiculo.ToString());
+                    Console.WriteLine(veiculo);
                 }
             }
             else
