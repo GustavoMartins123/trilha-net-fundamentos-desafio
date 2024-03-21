@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 namespace DesafioFundamentos.Models
 {
     public class Estacionamento
@@ -18,7 +19,7 @@ namespace DesafioFundamentos.Models
             // *IMPLEMENTE AQUI*
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             string car = Console.ReadLine();
-            if (car.Length < 7 || car.Length == 8 && !car.Contains("-") || car.Length > 8)
+            if (car.Length < 7 || car.Length == 7 && car.Contains("-")|| car.Length == 8 && !car.Contains("-") || car.Length > 8 || car.Any(c => !char.IsLetterOrDigit(c) && c != '-')|| Regex.IsMatch(car, "ç", RegexOptions.IgnoreCase))
             {
                 Console.WriteLine("Formato inválido. Por favor, digite novamente no formato correto, por exemplo: (AAA-1111).");
             }
