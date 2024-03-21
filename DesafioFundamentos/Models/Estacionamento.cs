@@ -19,16 +19,15 @@ namespace DesafioFundamentos.Models
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             string format = string.Format("###-####");
             string car = Console.ReadLine();
-            if(car.Length < 8 || car.Length > 9)
+            if (car.Length < 7 || car.Length >= 8 && !car.Contains("-"))
             {
-                Console.WriteLine("Formato inválido, digite novamente");
+                Console.WriteLine("Formato inválido. Por favor, digite novamente no formato correto, por exemplo: (AAA-1111).");
             }
             else
             {
                 if (!car.Contains("-"))
                 {
-                    car = car.Insert(4, "-");
-                    car = car.ToUpper();
+                    car = car.Insert(3, "-").ToUpper();
                 }
                 veiculos.Add(car);
                 Console.WriteLine($"O veiculo com a placa {car} foi estacionado.");
@@ -49,10 +48,14 @@ namespace DesafioFundamentos.Models
 
             // Pedir para o usuário digitar a placa e armazenar na variável placa
             // *IMPLEMENTE AQUI*
-            string placa = Console.ReadLine();
+            string placa = Console.ReadLine().ToUpper();
+            if (!placa.Contains("-"))
+            {
+                placa = placa.Insert(3, "-");
+            }
 
             // Verifica se o veículo existe
-            if (veiculos.Any(x => x.ToUpper() == placa.ToUpper()))
+            if (veiculos.Any(x => x.ToUpper() == placa))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
 
