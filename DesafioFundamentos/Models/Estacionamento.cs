@@ -19,7 +19,7 @@ namespace DesafioFundamentos.Models
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             string format = string.Format("###-####");
             string car = Console.ReadLine();
-            if (car.Length < 7 || car.Length >= 8 && !car.Contains("-"))
+            if (car.Length < 7 || car.Length == 8 && !car.Contains("-") || car.Length > 8)
             {
                 Console.WriteLine("Formato inválido. Por favor, digite novamente no formato correto, por exemplo: (AAA-1111).");
             }
